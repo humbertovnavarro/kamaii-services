@@ -7,7 +7,7 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-const TOKEN_TTL = time.Hour * 2
+var TOKEN_TTL = time.Hour * 2
 
 type UUID = string
 

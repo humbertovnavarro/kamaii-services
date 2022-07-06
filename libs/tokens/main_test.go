@@ -29,4 +29,22 @@ func TestParseUserToken(t *testing.T) {
 	claims, err = ParseUserToken(tokenString)
 	assert.Error(t, err)
 	assert.Nil(t, claims)
+
+}
+
+func TestExpiredToken(t *testing.T) {
+	TOKEN_TTL = -1
+	// Good token
+	TOKEN_SECRET = []byte{1, 0, 1, 0}
+	tokenString, _ := GenerateUserToken("foo")
+	claims, err := ParseUserToken(tokenString)
+	assert.Error(t, err)
+	assert.Equal(t, err.Error(), "token is expired by 1s")
+	assert.Nil(t, claims)
+	// Junk token
+	tokenString = "bar"
+	claims, err = ParseUserToken(tokenString)
+	assert.Error(t, err)
+	assert.Nil(t, claims)
+	assert.Equal(t, err.Error(), "token contains an invalid number of segments")
 }
