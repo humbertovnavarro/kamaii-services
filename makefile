@@ -4,6 +4,7 @@ build:
 
 test:
 	cd ./libs/tokens/ && go test ./...
+	cd ./libs/models/ && go test ./...
 	
 hooks:
 	cp ./scripts/pre-commit .git/hooks/pre-commit
