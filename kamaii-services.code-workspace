@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "libs/models"
+		},
+		{
+			"path": "libs/tokens"
+		},
+		{
+			"path": "services/account-balance"
+		},
+		{
+			"path": "services"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "clients"
+		}
+	]
+}
